@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Bumble Name Prompt</title>
-</head>
-<body>
-	<h2>Disclaimer:</h2>
-	<p>Do NOT take this in a wrong way. I don't know your name. So, I thought of asking. Hope the developer in you appreciates my effort.</p>
-
-	<h2>What is your Bumble name?</h2>
-	<input type="text" id="name-input">
-	<button onclick="checkName()">Submit</button>
-
-	<p id="result"></p>
-
-	<script>
-		function checkName() {
-			var name = document.getElementById("name-input").value;
-			if (name == "K") {
-				var answer = prompt("Are you ಕೊತ್ತಂಬರಿ?? Yes, No, or Why");
-				if (answer == "Yes") {
-					document.getElementById("result").innerHTML = "मां ने तुम्हें साथ लाने बोला है |";
-				} else if (answer == "No") {
-					var newAnswer = prompt("Please say Yes or ask Why?");
-					if (newAnswer == "Yes") {
-						document.getElementById("result").innerHTML = "मां ने तुम्हें साथ लाने बोला है |";
-					} else if (newAnswer == "Why") {
-						document.getElementById("result").innerHTML = "क्योंकि मां ने तुम्हें साथ लाने बोला है";
-					}
-				} else if (answer == "Why") {
-					document.getElementById("result").innerHTML = "क्योंकि मां ने तुम्हें साथ लाने बोला है";
-				}
-			} else {
-				document.getElementById("result").innerHTML = "Thanks for sharing your name, " + name + "!";
-			}
-		}
-	</script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bumble Name Prompt</title>
+  </head>
+  <body>
+    <h2>Disclaimer:</h2>
+    <p>Do NOT take this in a wrong way. I don't know your name. So, I thought of asking. Hope the developer in you appreciates my effort.</p>
+    <h2>What is your Bumble name?</h2>
+    <input type="text" id="name">
+    <div id="response"></div>
+    <button type="button" onclick="checkName()">Submit</button>
+    <script>
+      function checkName() {
+        var name = document.getElementById("name").value;
+        var response = document.getElementById("response");
+        if (name.toUpperCase() == "K") {
+          response.innerHTML = "<p>Are you ಕೊತ್ತಂಬರಿ??</p><button type='button' onclick='showResult(\"yes\")'>Yes</button><button type='button' onclick='showResult(\"no\")'>No</button><button type='button' onclick='showResult(\"why\")'>Why</button>";
+        } else {
+          response.innerHTML = "<p>Please say 'K'</p>";
+        }
+      }
+      function showResult(result) {
+        var response = document.getElementById("response");
+        if (result == "yes") {
+          response.innerHTML = "<p>मां ने तुम्हें साथ लाने बोला है |</p>";
+        } else if (result == "no") {
+          response.innerHTML = "<p>Please say 'Yes' or 'Why'</p>";
+        } else if (result == "why") {
+          response.innerHTML = "<p>क्योंकि मां ने तुम्हें साथ लाने बोला है</p>";
+        }
+      }
+    </script>
+  </body>
 </html>
